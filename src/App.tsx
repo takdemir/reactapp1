@@ -2,9 +2,11 @@ import React, {useState, useMemo, useEffect, useCallback} from 'react'
 import {useLocation, useNavigate} from 'react-router-dom'
 import './App.css'
 import HeaderContainer from "./containers/HeaderContainer"
-import ContentContainer from "./containers/ContentContainer";
-import SideContainer from "./containers/SideContainer";
-import FooterContainer from "./containers/FooterContainer";
+import ContentContainer from "./containers/ContentContainer"
+import SideContainer from "./containers/SideContainer"
+import FooterContainer from "./containers/FooterContainer"
+import {setToken} from "./redux/actions/AuthActions"
+import {setEmail} from "./redux/actions/CommonActions"
 
 
 const App = () => {
@@ -129,6 +131,9 @@ const App = () => {
             <button onClick={() => _handleIncreaseState2()}>Increase State2</button>
             <button onClick={() => _handleIncreaseState3()}>Increase State3</button>
             <button onClick={() => _handleChangeUsername()}>Change Username</button>
+            <button onClick={() => setEmail("abc@def.com")}>Set Redux Email</button>
+            <button onClick={() => setToken("abcd123*yydd3883")}>Set Redux Token</button>
+            <button onClick={() => setToken(null)}>Reset Redux Token</button>
             <span>Page Number: {page}</span>
         </div>
 
