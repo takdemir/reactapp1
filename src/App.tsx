@@ -7,7 +7,12 @@ import SideContainer from "./containers/SideContainer"
 import FooterContainer from "./containers/FooterContainer"
 import {setToken} from "./redux/actions/AuthActions"
 import {setEmail} from "./redux/actions/CommonActions"
+import { PDFViewer } from '@react-pdf/renderer';
+import ReactPDF from '@react-pdf/renderer';
+import Pdf from "./pages/pdf";
+import {user} from "./Types/CommonTypes";
 
+"taner".substring(2)
 
 const App = () => {
 
@@ -25,7 +30,7 @@ const App = () => {
 
     const [state2, setState2] = useState<number>(0)
     const [state3, setState3] = useState<number>(0)
-    const [user, setUser] = useState<{name: string, lastName: string, age?: number | null}>({
+    const [user, setUser] = useState<user>({
         name: "Taner",
         lastName: "Akdemir",
         age: 41
@@ -43,7 +48,7 @@ const App = () => {
         }, 2000)*/
         //console.log("use effect-1")
         //setPage(page + 1)
-
+        renderPdf()
 
         // Component Unmount
         return () => {
@@ -80,7 +85,7 @@ const App = () => {
 
 
     const increaseNumber = useCallback(() => {
-        console.log(state2)
+        //console.log(state2)
     }, [state2])
 
     increaseNumber()
@@ -120,8 +125,15 @@ const App = () => {
         })
     }
 
+    const renderPdf = async () => {
+        //let page = 1;
+        //let loadingTask = await pdfJsLib.getDocument("https://www.acarindex.com/dosyalar/makale/acarindex-1423937274.pdf");
+    }
 
 
+
+    // @ts-ignore
+    // @ts-ignore
     return (
         <div>
             {Header}
@@ -135,6 +147,8 @@ const App = () => {
             <button onClick={() => setToken("abcd123*yydd3883")}>Set Redux Token</button>
             <button onClick={() => setToken(null)}>Reset Redux Token</button>
             <span>Page Number: {page}</span>
+
+            {/*<Pdf />*/}
         </div>
 
     )

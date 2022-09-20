@@ -6,3 +6,5 @@ export type RouteType = {
     pageName: string,
     isVisibleOnLink: boolean
 }
+
+export type user = {name: string, lastName: string, age?: number | null}
